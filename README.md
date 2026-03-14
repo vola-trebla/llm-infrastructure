@@ -7,27 +7,26 @@ Each project is an independent, production-style component. Together they form a
 ## Architecture
 
 ```mermaid
-graph TD
-    A[Agentic Tool Router]
-    B[LLM Gateway]
-    C[Guardrails SDK]
-    D[LLM Eval Framework]
-    E[RAG Ingestion Toolkit]
+flowchart TB
+    A["🤖 Agentic Tool Router"]:::app
+    B["⚡ LLM Gateway"]:::infra
+    C["🛡️ Guardrails SDK"]:::quality
+    D["🧪 LLM Eval Framework"]:::quality
+    E["📦 RAG Ingestion Toolkit"]:::data
 
-    A --> B
-    B --> C
-    B --> D
-    C --> E
-    D --> E
+    A -- "routes requests" --> B
+    B -- "validates output" --> C
+    B -- "measures quality" --> D
+    C -- "consumes data from" --> E
+    D -- "evaluates against" --> E
 
-    style A fill:#7F77DD,stroke:#534AB7,color:#fff
-    style B fill:#378ADD,stroke:#185FA5,color:#fff
-    style C fill:#1D9E75,stroke:#0F6E56,color:#fff
-    style D fill:#1D9E75,stroke:#0F6E56,color:#fff
-    style E fill:#D85A30,stroke:#993C1D,color:#fff
+    classDef app fill:#0D0D0D,stroke:#A78BFA,color:#A78BFA,stroke-width:2px
+    classDef infra fill:#0D0D0D,stroke:#60A5FA,color:#60A5FA,stroke-width:2px
+    classDef quality fill:#0D0D0D,stroke:#34D399,color:#34D399,stroke-width:2px
+    classDef data fill:#0D0D0D,stroke:#FB923C,color:#FB923C,stroke-width:2px
+
+    linkStyle default stroke:#555,stroke-width:1.5px
 ```
-
-> **Application** → Agentic Tool Router · **Infrastructure** → LLM Gateway · **Quality** → Guardrails SDK + LLM Eval Framework · **Data** → RAG Ingestion Toolkit
 
 ## Projects
 
@@ -35,7 +34,7 @@ graph TD
 
 ReAct-style AI agent that answers space questions by autonomously selecting and calling real-time NASA APIs.
 
-**Key concepts:** ReAct loop (think → act → observe), function calling, tool registry, multi-step reasoning trace
+**Key concepts:** ReAct loop (think - act - observe), function calling, tool registry, multi-step reasoning trace
 
 **Stack:** TypeScript · Gemini 2.5 Flash · Hono · Zod
 

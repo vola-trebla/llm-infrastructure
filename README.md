@@ -1,6 +1,6 @@
 # LLM Infrastructure
 
-A modular stack for building reliable LLM-powered applications — from raw data ingestion to autonomous agents.
+A modular stack for building reliable LLM-powered applications - from raw data ingestion to autonomous agents.
 
 Each project is an independent, production-style component. Together they form a complete AI application architecture.
 
@@ -31,7 +31,7 @@ graph TD
 
 ## Projects
 
-### [Agentic Tool Router](https://github.com/vola-trebla/agentic-tool-router) — Application Layer
+### [Agentic Tool Router](https://github.com/vola-trebla/agentic-tool-router) - Application Layer
 
 ReAct-style AI agent that answers space questions by autonomously selecting and calling real-time NASA APIs.
 
@@ -41,7 +41,7 @@ ReAct-style AI agent that answers space questions by autonomously selecting and 
 
 ---
 
-### [LLM Gateway](https://github.com/vola-trebla/llm-gateway) — Infrastructure Layer
+### [LLM Gateway](https://github.com/vola-trebla/llm-gateway) - Infrastructure Layer
 
 A proxy server between your application and LLM providers. Single entry point for all AI requests with built-in reliability and cost control.
 
@@ -51,7 +51,7 @@ A proxy server between your application and LLM providers. Single entry point fo
 
 ---
 
-### [Guardrails SDK](https://github.com/vola-trebla/guardrails-sdk) — Quality Layer
+### [Guardrails SDK](https://github.com/vola-trebla/guardrails-sdk) - Quality Layer
 
 An npm library for guaranteed valid, typed output from LLMs. Write `generate(schema, prompt)` and get a typed object that is guaranteed to pass validation.
 
@@ -61,7 +61,7 @@ An npm library for guaranteed valid, typed output from LLMs. Write `generate(sch
 
 ---
 
-### [LLM Eval Framework](https://github.com/vola-trebla/llm-eval-framework) — Quality Layer
+### [LLM Eval Framework](https://github.com/vola-trebla/llm-eval-framework) - Quality Layer
 
 A framework for testing LLM output quality. Think pytest, but for prompts.
 
@@ -71,7 +71,7 @@ A framework for testing LLM output quality. Think pytest, but for prompts.
 
 ---
 
-### [RAG Ingestion Toolkit](https://github.com/vola-trebla/rag-ingestion-toolkit) — Data Layer
+### [RAG Ingestion Toolkit](https://github.com/vola-trebla/rag-ingestion-toolkit) - Data Layer
 
 Clean, structured data pipeline for RAG systems. Converts raw HTML, PDF, and Markdown into chunked, embedding-ready output with metadata extraction.
 
@@ -83,10 +83,10 @@ Clean, structured data pipeline for RAG systems. Converts raw HTML, PDF, and Mar
 
 ## Design Decisions
 
-**Why separate projects, not a monorepo?** Each component is independently deployable and useful on its own. A guardrails library doesn't need to know about your gateway. This mirrors how infrastructure is built in production — small, focused tools composed together.
+**Why separate projects, not a monorepo?** Each component is independently deployable and useful on its own. A guardrails library doesn't need to know about your gateway. This mirrors how infrastructure is built in production - small, focused tools composed together.
 
 **Why both TypeScript and Python?** TypeScript for runtime services (gateway, agent, SDK) where type safety and npm distribution matter. Python for data processing and evaluation where the ML ecosystem lives. This reflects the real-world split in AI engineering teams.
 
 **Why the layered architecture?** Each layer solves one problem and depends only on the layer below. Data layer has zero LLM dependencies. Quality layer validates but doesn't route. Infrastructure layer routes but doesn't decide. Application layer orchestrates everything. You can swap any layer without breaking the others.
 
-**Why build from scratch instead of using LangChain / LlamaIndex?** Understanding the primitives. Every component here solves a problem I can explain in an interview — how circuit breakers prevent cascade failures, why schema validation needs retry loops, what makes a chunking strategy "smart." Frameworks hide these decisions. Building them teaches them.
+**Why build from scratch instead of using LangChain / LlamaIndex?** Understanding the primitives. Every component here solves a problem I can explain in an interview - how circuit breakers prevent cascade failures, why schema validation needs retry loops, what makes a chunking strategy "smart." Frameworks hide these decisions. Building them teaches them.

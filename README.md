@@ -8,24 +8,30 @@ Each project is an independent, production-style component. Together they form a
 
 ```mermaid
 flowchart TB
-    A["🤖 Agentic Tool Router"]:::app
-    B["⚡ LLM Gateway"]:::infra
-    C["🛡️ Guardrails SDK"]:::quality
-    D["🧪 LLM Eval Framework"]:::quality
-    E["📦 RAG Ingestion Toolkit"]:::data
+    A["🤖 Agentic Tool Router"]
+    B["⚡ LLM Gateway"]
+    C["🛡 Guardrails SDK"]
+    D["🧪 LLM Eval Framework"]
+    E["📦 RAG Ingestion Toolkit"]
 
-    A -- "routes requests" --> B
-    B -- "validates output" --> C
-    B -- "measures quality" --> D
-    C -- "consumes data from" --> E
-    D -- "evaluates against" --> E
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> E
 
-    classDef app fill:#0D0D0D,stroke:#A78BFA,color:#A78BFA,stroke-width:2px
-    classDef infra fill:#0D0D0D,stroke:#60A5FA,color:#60A5FA,stroke-width:2px
-    classDef quality fill:#0D0D0D,stroke:#34D399,color:#34D399,stroke-width:2px
-    classDef data fill:#0D0D0D,stroke:#FB923C,color:#FB923C,stroke-width:2px
+    classDef app fill:#0B0B0B,stroke:#A78BFA,color:#A78BFA,stroke-width:1px
+    classDef infra fill:#0B0B0B,stroke:#60A5FA,color:#60A5FA,stroke-width:1px
+    classDef quality fill:#0B0B0B,stroke:#34D399,color:#34D399,stroke-width:1px
+    classDef data fill:#0B0B0B,stroke:#FB923C,color:#FB923C,stroke-width:1px
 
-    linkStyle default stroke:#555,stroke-width:1.5px
+    class A app
+    class B infra
+    class C quality
+    class D quality
+    class E data
+
+    linkStyle default stroke:#666,stroke-width:1px
 ```
 
 ## Projects

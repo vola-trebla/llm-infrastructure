@@ -8,17 +8,17 @@ Each project is an independent, production-style component. Together they form a
 
 ```mermaid
 graph TD
-    A["🤖 Agentic Tool Router\nReAct agent · function calling · tool orchestration"]
-    B["⚡ LLM Gateway\nMulti-provider proxy · fallback routing · circuit breaker"]
-    C["🛡️ Guardrails SDK\nSchema validation · retry logic · self-correction"]
-    D["🧪 LLM Eval Framework\nTest suites · metrics · dataset evaluation"]
-    E["📦 RAG Ingestion Toolkit\nHTML / PDF / Markdown → chunked embeddings"]
+    A[Agentic Tool Router]
+    B[LLM Gateway]
+    C[Guardrails SDK]
+    D[LLM Eval Framework]
+    E[RAG Ingestion Toolkit]
 
-    A -->|routes requests through| B
-    B -->|enforces output quality via| C
-    B -->|measures output quality via| D
-    C -->|validates data from| E
-    D -->|evaluates pipelines built on| E
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> E
 
     style A fill:#7F77DD,stroke:#534AB7,color:#fff
     style B fill:#378ADD,stroke:#185FA5,color:#fff
@@ -26,6 +26,8 @@ graph TD
     style D fill:#1D9E75,stroke:#0F6E56,color:#fff
     style E fill:#D85A30,stroke:#993C1D,color:#fff
 ```
+
+> **Application** → Agentic Tool Router · **Infrastructure** → LLM Gateway · **Quality** → Guardrails SDK + LLM Eval Framework · **Data** → RAG Ingestion Toolkit
 
 ## Projects
 
